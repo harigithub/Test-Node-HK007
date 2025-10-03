@@ -17,17 +17,17 @@ pipeline:
                   name: npm test
                   identifier: npm_test
                   spec:
+                    connectorRef: MyDockerHubRegistryConnector
+                    image: node:20.19
                     shell: Sh
                     command: |-
                       npm install
                       npm run build --if-present
                       npm test
-                    connectorRef: MyDockerHubRegistryConnector
-                    image: node:18
                     resources:
                       limits:
-                        cpu: "0.5"
                         memory: 512Mi
+                        cpu: "0.5"
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
