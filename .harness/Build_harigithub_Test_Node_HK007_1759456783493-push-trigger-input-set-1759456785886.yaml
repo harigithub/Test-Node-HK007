@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harigithub_Test_Node_HK007_1759456783493-push-trigger-input-set
+  identifier: Build_harigithub_Test_Node_HK007_1759456783493pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: HarnessTaskNew
+  pipeline:
+    identifier: Build_harigithub_Test_Node_HK007_1759456783493
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
