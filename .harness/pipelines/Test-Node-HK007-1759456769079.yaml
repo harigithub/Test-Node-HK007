@@ -34,10 +34,10 @@ pipeline:
                   name: npm test
                   identifier: npm_test
                   spec:
-                    connectorRef: MyDockerHubRegistryConnector
+                    connectorRef: MyDockerRegistry
                     image: node:20.19
                     shell: Sh
-                    command: |
+                    command: |-
                       npm install
                       npm run build --if-present
                       npm test
