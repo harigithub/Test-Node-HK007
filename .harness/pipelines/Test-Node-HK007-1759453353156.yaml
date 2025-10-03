@@ -10,12 +10,6 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
@@ -39,6 +33,14 @@ pipeline:
                     repo: haridockerhub007/harness-node-test
                     tags:
                       - <+pipeline.sequenceId>
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: MyMinikubeHarnessConnector
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
         infrastructure:
           type: KubernetesDirect
           spec:
@@ -47,6 +49,8 @@ pipeline:
             automountServiceAccountToken: true
             nodeSelector: {}
             os: Linux
+        delegateSelectors:
+          - helm-delegate
   properties:
     ci:
       codebase:
