@@ -1,6 +1,6 @@
 pipeline:
   identifier: Build_harigithub_Test_Node_HK007_1759456783493
-  name: "CI Node-App "
+  name: "CI-Node-App "
   orgIdentifier: default
   projectIdentifier: HarnessTaskNew
   properties:
