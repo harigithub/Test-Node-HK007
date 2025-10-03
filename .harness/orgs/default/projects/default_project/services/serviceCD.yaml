@@ -1,0 +1,40 @@
+service:
+  name: service-CD
+  identifier: serviceCD
+  description: ""
+  tags: {}
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      manifests:
+        - manifest:
+            identifier: ManifestCD
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.Github
+                  gitFetchType: Branch
+                  paths:
+                    - deployment.yaml
+                    - service.yaml
+                  repoName: https://github.com/harigithub/Test-Node-HK007
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              optionalValuesYaml: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: MyDockerHubRegistryConnector
+                imagePath: harness-node-test
+                tag: <+input>
+                digest: ""
+              identifier: haridockerhub007
+              type: DockerRegistry
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: default_project
