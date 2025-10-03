@@ -1,0 +1,26 @@
+service:
+  name: Production-Win-Svc
+  identifier: ProductionWinSvc
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      manifests:
+        - manifest:
+            identifier: k8s
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: NodeCdConnector
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/deployment.yaml
+                    - k8s/service.yaml
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              optionalValuesYaml: false
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: HarnessTaskNew
