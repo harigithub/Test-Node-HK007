@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: production-win
+  name: production-infra
   identifier: productionwin
   orgIdentifier: default
   projectIdentifier: HarnessTaskNew
