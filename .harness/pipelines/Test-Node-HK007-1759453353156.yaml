@@ -24,6 +24,10 @@ pipeline:
                       npm test
                     connectorRef: MyDockerHubRegistryConnector
                     image: node:18
+                    resources:
+                      limits:
+                        cpu: "0.5"
+                        memory: 512Mi
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
@@ -41,16 +45,6 @@ pipeline:
               automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
-        infrastructure:
-          type: KubernetesDirect
-          spec:
-            connectorRef: MyMinikubeHarnessConnector
-            namespace: harness-delegate-ng
-            automountServiceAccountToken: true
-            nodeSelector: {}
-            os: Linux
-        delegateSelectors:
-          - helm-delegate
   properties:
     ci:
       codebase:
