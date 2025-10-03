@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harigithub_Test_Node_HK007_1759456783493-pr-trigger-input-set
+  identifier: Build_harigithub_Test_Node_HK007_1759456783493prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: HarnessTaskNew
+  pipeline:
+    identifier: Build_harigithub_Test_Node_HK007_1759456783493
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
