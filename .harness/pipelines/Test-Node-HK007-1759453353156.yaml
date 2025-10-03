@@ -1,5 +1,5 @@
 pipeline:
-  name: Build Test-Node-HK007
+  name: Harness-CI Node-App
   identifier: Build_harigithub_Test_Node_HK007_1759453381776
   projectIdentifier: default_project
   orgIdentifier: default
@@ -62,3 +62,4 @@ pipeline:
         connectorRef: account.Github
         repoName: harigithub/Test-Node-HK007
         build: <+input>
+  tags: {}
