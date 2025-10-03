@@ -123,6 +123,4 @@ pipeline:
             serviceRef: nodeappservice
         tags: {}
         type: Deployment
-        delegateSelectors:
-          - helm-delegate-win
   tags: {}
