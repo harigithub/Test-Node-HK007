@@ -13,6 +13,17 @@ pipeline:
           execution:
             steps:
               - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: account.Github
+                    repoName: Test-Node-HK007
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+              - step:
                   type: Run
                   name: npm test
                   identifier: npm_test
