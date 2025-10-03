@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: haridockerhub007/harness-node-test:9  # Set accordingly
+        image: haridockerhub007/harness-node-test:32  # Set accordingly
         ports:
         - containerPort: 3002  # Adjust based on your app's port (check package.json or app code)
         resources:
