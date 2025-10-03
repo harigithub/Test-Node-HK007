@@ -1,6 +1,6 @@
 pipeline:
   identifier: Build_harigithub_Test_Node_HK007_1759456783493
-  name: Build Test-Node-HK007
+  name: "CI Node-App "
   orgIdentifier: default
   projectIdentifier: HarnessTaskNew
   properties:
@@ -62,3 +62,4 @@ pipeline:
               automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
+  tags: {}
