@@ -5,7 +5,7 @@ metadata:
   labels:
     app: node-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: node-app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-deployment
-        image: pavansa/mumbai-app:latest
+        image: haridockerhub007/harness-node-test:6
         resources:
           requests:
             cpu: "100m"
