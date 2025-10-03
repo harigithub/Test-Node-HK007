@@ -125,5 +125,5 @@ pipeline:
         tags: {}
         type: Deployment
         delegateSelectors:
-          - helm-delegate-win
+          - helm-delegate
   tags: {}
