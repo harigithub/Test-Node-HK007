@@ -50,7 +50,7 @@ pipeline:
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: MyDockerHubRegistryConnector
+                    connectorRef: MyDockerRegistry
                     repo: haridockerhub007/harness-node-test
                     tags:
                       - <+pipeline.sequenceId>
