@@ -10,21 +10,35 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Echo Welcome Message
-                  identifier: Echo_Welcome_Message
-                  spec:
-                    shell: Sh
-                    command: echo "Welcome to Harness CI"
           platform:
             os: Linux
             arch: Amd64
           runtime:
             type: Cloud
             spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run
+                  identifier: Run
+                  spec:
+                    connectorRef: MyDockerHubRegistryConnector
+                    image: haridockerhub007/harness-node-test
+                    shell: Sh
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      node --version
+                      npm install
+                      npm run build --if-present
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: MyMinikubeHarnessConnector
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
   properties:
     ci:
       codebase:
