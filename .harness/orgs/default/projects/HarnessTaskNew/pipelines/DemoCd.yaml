@@ -17,10 +17,11 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           environment:
-            environmentRef: harnessdevenv
+            environmentRef: Productioncd
+            gitBranch: main
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: harnessk8sinfra
+              - identifier: productionwin
           execution:
             rollbackSteps:
               - step:
@@ -122,4 +123,6 @@ pipeline:
             serviceRef: nodeappservice
         tags: {}
         type: Deployment
+        delegateSelectors:
+          - helm-delegate-win
   tags: {}
