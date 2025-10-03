@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+  labels:
+    app: node-app
+spec:
+  replicas: 1  # Number of pod instances
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: haridockerhub007/harness-node-test:9  # Set accordingly
+        ports:
+        - containerPort: 3002  # Adjust based on your app's port (check package.json or app code)
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+        env:  # Add environment variables if needed (e.g., from your app)
+        - name: NODE_ENV
+          value: "production"
