@@ -1,0 +1,8 @@
+environment:
+  name: Production-cd
+  identifier: Productioncd
+  description: ""
+  tags: {}
+  type: Production
+  orgIdentifier: default
+  projectIdentifier: HarnessTaskNew
